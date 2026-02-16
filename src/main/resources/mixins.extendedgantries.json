@@ -4,7 +4,8 @@
     "compatibilityLevel": "JAVA_17",
     "refmap": "mixins.extendedgantries.refmap.json",
     "mixins": [
-        "GantrySplitMixin"
+        "GantrySplitMovementBehaviourMixin",
+        "GantryShaftConnectMixin"
     ],
     "injectors": {
         "defaultRequire": 1
