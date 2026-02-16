@@ -2,6 +2,7 @@ package com.spag.extended_gantries;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.spag.extended_gantries.registry.BlockEntityRegistry;
 import com.spag.extended_gantries.registry.BlockRegistry;
 
 import net.minecraft.client.Minecraft;
@@ -52,6 +53,7 @@ public class ExtendedGantries
         modEventBus.addListener(this::commonSetup);
 
         BlockRegistry.register();
+        BlockEntityRegistry.register();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

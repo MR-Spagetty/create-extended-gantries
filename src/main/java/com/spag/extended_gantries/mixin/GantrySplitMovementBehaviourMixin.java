@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.At.Shift;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -18,6 +19,7 @@ import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock;
 import com.spag.extended_gantries.ExtendedGantries;
 import com.spag.extended_gantries.gantry_split.GantrySplitBlock;
 import com.spag.extended_gantries.registry.BlockRegistry;
+import com.tterrag.registrate.util.entry.BlockEntry;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -45,17 +47,8 @@ public abstract class GantrySplitMovementBehaviourMixin {
             }
         }
     }
-
-    @Inject(method = "moveBlock", at = @At("HEAD"))
-    private void exploreFromSplit(Level world, Direction forcedDirection, Queue<BlockPos> frontier,
-            Set<BlockPos> visited, CallbackInfoReturnable<Boolean> cir) {
-        BlockPos pos = frontier.peek();
-        if (pos == null) {
-            return;
-        }
-        BlockState state = world.getBlockState(pos);
-        if (BlockRegistry.GANTRY_SPLIT.has(state)) {
-            moveGantryShaft(world, pos, frontier, visited, state);
-        }
+    @Redirect(method = "moveBlock", at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
+    private boolean permitGantrySplit(BlockEntry<?> instance, BlockState state) {
+        return instance.has(state) || BlockRegistry.GANTRY_SPLIT.has(state);
     }
 }

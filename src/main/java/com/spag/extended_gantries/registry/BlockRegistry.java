@@ -1,6 +1,7 @@
 package com.spag.extended_gantries.registry;
 
 import com.simibubi.create.AllBlocks;
+import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock;
 import com.simibubi.create.foundation.data.AssetLookup;

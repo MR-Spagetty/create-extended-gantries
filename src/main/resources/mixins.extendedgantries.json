@@ -6,7 +6,9 @@
     "mixins": [
         "GantrySplitMovementBehaviourMixin",
         "GantryShaftConnectMixin",
-        "GantryCarraigeOnGantrySplitMixin"
+        "GantryCarriageOnGantrySplitMixin",
+        "GantryCarriageMoveOnGantrySplitMixin",
+        "GantryShaftBEAllowSplitGantryMixin"
     ],
     "injectors": {
         "defaultRequire": 1
