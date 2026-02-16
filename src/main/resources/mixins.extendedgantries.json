@@ -1,0 +1,12 @@
+{
+    "required": true,
+    "package": "com.spag.extended_gantries.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "refmap": "mixins.extendedgantries.refmap.json",
+    "mixins": [
+        "GantrySplitMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
