@@ -5,7 +5,8 @@
     "refmap": "mixins.extendedgantries.refmap.json",
     "mixins": [
         "GantrySplitMovementBehaviourMixin",
-        "GantryShaftConnectMixin"
+        "GantryShaftConnectMixin",
+        "GantryCarraigeOnGantrySplitMixin"
     ],
     "injectors": {
         "defaultRequire": 1
