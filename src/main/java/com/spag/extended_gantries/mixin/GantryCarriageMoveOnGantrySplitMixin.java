@@ -6,6 +6,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.contraptions.gantry.GantryCarriageBlockEntity;
+import com.spag.extended_gantries.Util;
 import com.spag.extended_gantries.registry.BlockRegistry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
@@ -15,6 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 public class GantryCarriageMoveOnGantrySplitMixin {
     @Redirect(method = {"tryAssemble", "propagateRotationTo"}, at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
     private boolean permitGantrySplit(BlockEntry<?> instance, BlockState state) {
-        return instance.has(state) || BlockRegistry.GANTRY_SPLIT.has(state);
+        return Util.GantryShaftHasIncGantrySplit(instance, state);
     }
 }

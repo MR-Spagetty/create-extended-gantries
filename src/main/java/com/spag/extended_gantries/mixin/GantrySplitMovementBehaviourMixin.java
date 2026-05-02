@@ -16,8 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.contraptions.Contraption;
 import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock;
-import com.spag.extended_gantries.ExtendedGantries;
-import com.spag.extended_gantries.gantry_split.GantrySplitBlock;
+import com.spag.extended_gantries.Util;
 import com.spag.extended_gantries.registry.BlockRegistry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
@@ -47,8 +46,8 @@ public abstract class GantrySplitMovementBehaviourMixin {
             }
         }
     }
-    @Redirect(method = "moveBlock", at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
+    @Redirect(method = {"moveBlock", "moveGantryPinion"}, at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
     private boolean permitGantrySplit(BlockEntry<?> instance, BlockState state) {
-        return instance.has(state) || BlockRegistry.GANTRY_SPLIT.has(state);
+        return Util.GantryShaftHasIncGantrySplit(instance, state);
     }
 }
