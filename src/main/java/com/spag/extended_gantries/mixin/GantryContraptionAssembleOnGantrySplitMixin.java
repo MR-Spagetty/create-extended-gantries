@@ -7,12 +7,8 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import com.simibubi.create.content.contraptions.gantry.GantryContraptionEntity;
 import com.spag.extended_gantries.ExtendedGantries;
 import com.spag.extended_gantries.Util;
-import com.spag.extended_gantries.registry.BlockRegistry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
 @Mixin(GantryContraptionEntity.class)
