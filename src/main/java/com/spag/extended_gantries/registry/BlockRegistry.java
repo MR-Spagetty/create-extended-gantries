@@ -25,7 +25,7 @@ public interface BlockRegistry {
                 boolean isPowered = s.getValue(GantryShaftBlock.POWERED);
                 boolean isFlipped = s.getValue(GantryShaftBlock.FACING)
                         .getAxisDirection() == AxisDirection.NEGATIVE;
-                String partName = s.getValue(GantryShaftBlock.PART)
+                String partName = s.getValue(GantrySplitBlock.VISUAL_PART)
                         .getSerializedName();
                 String flipped = isFlipped ? "_flipped" : "";
                 String powered = isPowered ? "_powered" : "";
