@@ -4,6 +4,7 @@ import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import com.spag.extended_gantries.ExtendedGantries;
 import com.spag.extended_gantries.gantry_split.CustomVisual;
 import com.spag.extended_gantries.gantry_split.GantrySplitBlockEntity;
+import com.spag.extended_gantries.gantry_split.GantrySplitRenderer;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
 public interface BlockEntityRegistry {
@@ -11,7 +12,7 @@ public interface BlockEntityRegistry {
             .blockEntity("gantry_split", GantrySplitBlockEntity::new)
             .visual(() -> CustomVisual::gantrySplit)
             .validBlocks(BlockRegistry.GANTRY_SPLIT)
-            .renderer(() -> KineticBlockEntityRenderer::new)
+            .renderer(() -> GantrySplitRenderer::new)
             .register();
 
     static void register() {
