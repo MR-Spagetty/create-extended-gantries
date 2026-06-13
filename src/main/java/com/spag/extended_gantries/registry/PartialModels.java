@@ -3,7 +3,6 @@ package com.spag.extended_gantries.registry;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.simibubi.create.AllPartialModels.GantryShaftKey;
 import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock;
 import com.spag.extended_gantries.Util;
 
