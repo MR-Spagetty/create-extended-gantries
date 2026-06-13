@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "create:andesite_alloy"
+    },
+    "I": {
+      "tag": "forge:nuggets/iron"
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    " A ",
+    "IRI",
+    " A "
+  ],
+  "result": {
+    "count": 8,
+    "item": "extendedgantries:gantry_split"
+  },
+  "show_notification": true
+}
