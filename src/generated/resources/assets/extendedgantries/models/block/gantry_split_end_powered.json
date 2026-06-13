@@ -1,0 +1,6 @@
+{
+  "parent": "extendedgantries:block/gantry_split/block_end",
+  "textures": {
+    "2": "create:block/gantry_shaft_powered"
+  }
+}

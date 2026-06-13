@@ -49,8 +49,7 @@ build
 eclipse
 **run*
 
-# why bother tracking generated files?
-**generated
+**.cache
 
 # Files from Forge MDK
 forge*changelog.txt
