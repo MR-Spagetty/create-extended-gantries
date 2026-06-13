@@ -1,7 +1,6 @@
 package com.spag.extended_gantries.registry;
 
 import com.simibubi.create.AllBlocks;
-import com.simibubi.create.AllBlockEntityTypes;
 import com.simibubi.create.api.stress.BlockStressValues;
 import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock;
 import com.simibubi.create.foundation.data.AssetLookup;
@@ -35,7 +34,7 @@ public interface BlockRegistry {
                 return p.models()
                         .withExistingParent("block/" + c.getName() + "_" + partName + powered + flipped,
                                 existing.getLocation())
-                        .texture("2", p.modLoc("block/" + c.getName() + powered + flipped));
+                        .texture("2", "create:block/gantry_shaft" + powered + flipped);
             })).item()
             .transform(com.simibubi.create.foundation.data.ModelGen.customItemModel("_", "block_single")).register();
 
