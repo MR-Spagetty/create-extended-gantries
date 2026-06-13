@@ -34,6 +34,9 @@ public class PartialModels {
     public record GantrySplitKey(GantryShaftBlock.Part part, boolean powered, boolean flipped) {
         private ResourceLocation name() {
             String partName = part.getSerializedName();
+            if (!(this.powered || this.flipped)){
+                return Util.asResource("block/gantry_split/block_" + partName);
+            }
             String flipped = this.flipped ? "_flipped" : "";
             String powered = this.powered ? "_powered" : "";
             return Util.asResource("block/gantry_split_" + partName + powered + flipped);
