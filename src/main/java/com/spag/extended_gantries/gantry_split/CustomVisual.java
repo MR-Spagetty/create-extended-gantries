@@ -1,7 +1,7 @@
 package com.spag.extended_gantries.gantry_split;
 
-import com.simibubi.create.AllPartialModels;
-import com.simibubi.create.AllPartialModels.GantryShaftKey;
+import com.spag.extended_gantries.registry.PartialModels.GantrySplitKey;
+import com.spag.extended_gantries.registry.PartialModels;
 import com.simibubi.create.content.kinetics.base.OrientedRotatingVisual;
 import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock;
 import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock.Part;
@@ -22,7 +22,7 @@ public class CustomVisual {
 		boolean isFlipped = blockState.getValue(GantryShaftBlock.FACING)
 			.getAxisDirection() == AxisDirection.NEGATIVE;
 
-		var model = Models.partial(AllPartialModels.GANTRY_SHAFTS.get(new GantryShaftKey(part, isPowered, isFlipped)));
+		var model = Models.partial(PartialModels.GANTRY_SPLIT.get(new GantrySplitKey(part, isPowered, isFlipped)));
 
 		return new OrientedRotatingVisual<>(vizCont, BE, partialTicks, Direction.UP, blockState.getValue(GantryShaftBlock.FACING), model);
     }
