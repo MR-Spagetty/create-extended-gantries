@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "create:gantry_shaft"
-            ]
+            "items": "create:gantry_shaft"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_gantry",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_gantry"
     ]
   ],
   "rewards": {
     "recipes": [
       "extendedgantries:crafting/gantry_split"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
