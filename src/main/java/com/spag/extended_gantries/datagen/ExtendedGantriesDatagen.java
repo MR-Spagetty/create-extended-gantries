@@ -1,14 +1,10 @@
 package com.spag.extended_gantries.datagen;
 
-import com.spag.extended_gantries.ExtendedGantries;
-
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.bus.api.SubscribeEvent;
 
-@Mod.EventBusSubscriber(modid = ExtendedGantries.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ExtendedGantriesDatagen {
 
     private ExtendedGantriesDatagen() {

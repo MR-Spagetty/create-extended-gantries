@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.spag.extended_gantries.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "refmap": "create-extended-gantries.refmap.json",
+  "mixins": ${mixin_list},
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

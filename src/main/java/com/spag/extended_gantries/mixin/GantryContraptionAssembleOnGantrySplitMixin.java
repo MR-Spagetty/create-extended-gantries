@@ -5,7 +5,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import com.simibubi.create.content.contraptions.gantry.GantryContraptionEntity;
-import com.spag.extended_gantries.ExtendedGantries;
 import com.spag.extended_gantries.Util;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
@@ -15,7 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 public class GantryContraptionAssembleOnGantrySplitMixin {
     @Redirect(method = { "checkPinionShaft" }, at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"), remap = false)
     private boolean permitGantrySplit(BlockEntry<?> instance, BlockState state) {
-        ExtendedGantries.LOGGER.info("trying to assemble?");
         return Util.GantryShaftHasIncGantrySplit(instance, state);
     }
 }

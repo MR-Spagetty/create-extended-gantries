@@ -12,6 +12,6 @@ public class Util {
     }
 
     public static ResourceLocation asResource(String path) {
-        return ResourceLocation.fromNamespaceAndPath(ExtendedGantries.MODID, path);
+        return ResourceLocation.fromNamespaceAndPath(CreateExtendedGantries.MODID, path);
     }
 }
