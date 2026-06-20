@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "extendedgantries:magenta_concrete_encased_gantry"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "extendedgantries:blocks/magenta_concrete_encased_gantry"
+}

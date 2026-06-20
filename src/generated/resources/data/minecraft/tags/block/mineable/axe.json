@@ -1,5 +1,21 @@
 {
   "values": [
-    "extendedgantries:gantry_split"
+    "extendedgantries:gantry_split",
+    "extendedgantries:white_concrete_encased_gantry",
+    "extendedgantries:light_gray_concrete_encased_gantry",
+    "extendedgantries:gray_concrete_encased_gantry",
+    "extendedgantries:black_concrete_encased_gantry",
+    "extendedgantries:brown_concrete_encased_gantry",
+    "extendedgantries:red_concrete_encased_gantry",
+    "extendedgantries:orange_concrete_encased_gantry",
+    "extendedgantries:yellow_concrete_encased_gantry",
+    "extendedgantries:lime_concrete_encased_gantry",
+    "extendedgantries:green_concrete_encased_gantry",
+    "extendedgantries:cyan_concrete_encased_gantry",
+    "extendedgantries:light_blue_concrete_encased_gantry",
+    "extendedgantries:blue_concrete_encased_gantry",
+    "extendedgantries:purple_concrete_encased_gantry",
+    "extendedgantries:magenta_concrete_encased_gantry",
+    "extendedgantries:pink_concrete_encased_gantry"
   ]
 }

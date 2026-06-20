@@ -1,3 +1,19 @@
 {
-  "block.extendedgantries.gantry_split": "Gantry Split"
+  "block.extendedgantries.black_concrete_encased_gantry": "Black Concrete Encased Gantry",
+  "block.extendedgantries.blue_concrete_encased_gantry": "Blue Concrete Encased Gantry",
+  "block.extendedgantries.brown_concrete_encased_gantry": "Brown Concrete Encased Gantry",
+  "block.extendedgantries.cyan_concrete_encased_gantry": "Cyan Concrete Encased Gantry",
+  "block.extendedgantries.gantry_split": "Gantry Split",
+  "block.extendedgantries.gray_concrete_encased_gantry": "Gray Concrete Encased Gantry",
+  "block.extendedgantries.green_concrete_encased_gantry": "Green Concrete Encased Gantry",
+  "block.extendedgantries.light_blue_concrete_encased_gantry": "Light Blue Concrete Encased Gantry",
+  "block.extendedgantries.light_gray_concrete_encased_gantry": "Light Gray Concrete Encased Gantry",
+  "block.extendedgantries.lime_concrete_encased_gantry": "Lime Concrete Encased Gantry",
+  "block.extendedgantries.magenta_concrete_encased_gantry": "Magenta Concrete Encased Gantry",
+  "block.extendedgantries.orange_concrete_encased_gantry": "Orange Concrete Encased Gantry",
+  "block.extendedgantries.pink_concrete_encased_gantry": "Pink Concrete Encased Gantry",
+  "block.extendedgantries.purple_concrete_encased_gantry": "Purple Concrete Encased Gantry",
+  "block.extendedgantries.red_concrete_encased_gantry": "Red Concrete Encased Gantry",
+  "block.extendedgantries.white_concrete_encased_gantry": "White Concrete Encased Gantry",
+  "block.extendedgantries.yellow_concrete_encased_gantry": "Yellow Concrete Encased Gantry"
 }

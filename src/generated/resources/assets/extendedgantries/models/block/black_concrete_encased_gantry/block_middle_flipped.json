@@ -1,0 +1,7 @@
+{
+  "parent": "extendedgantries:block/encased_gantry/middle",
+  "textures": {
+    "2": "create:block/gantry_shaft_flipped",
+    "casing": "minecraft:block/black_concrete"
+  }
+}

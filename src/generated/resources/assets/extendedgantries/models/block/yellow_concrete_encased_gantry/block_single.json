@@ -1,0 +1,7 @@
+{
+  "parent": "extendedgantries:block/encased_gantry/single",
+  "textures": {
+    "2": "create:block/gantry_shaft",
+    "casing": "minecraft:block/yellow_concrete"
+  }
+}
