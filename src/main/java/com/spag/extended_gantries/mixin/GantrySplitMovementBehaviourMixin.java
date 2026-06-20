@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import com.simibubi.create.content.contraptions.Contraption;
 import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock;
 import com.spag.extended_gantries.Util;
+import com.spag.extended_gantries.gantry_split.GantrySplitBlock;
 import com.spag.extended_gantries.registry.BlockRegistry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 
@@ -43,7 +44,12 @@ public abstract class GantrySplitMovementBehaviourMixin {
         }
     }
     @Redirect(method = {"moveBlock", "moveGantryPinion"}, at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
-    private boolean permitGantrySplit(BlockEntry<?> instance, BlockState state) {
-        return Util.GantryShaftHasIncGantrySplit(instance, state);
+    private boolean permitGantryVarients(BlockEntry<?> instance, BlockState state) {
+        return Util.GantryShaftHasIncAllGantryVarients(instance, state);
+    }
+
+    @Redirect(method = "moveGantryShaft", at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
+    private boolean permitGantryNonSplitVarientsSticky(BlockEntry<?> instance, BlockState state) {
+        return Util.GantryShaftHasIncAllGantryVarients(instance, state) && !(state.getBlock() instanceof GantrySplitBlock);
     }
 }

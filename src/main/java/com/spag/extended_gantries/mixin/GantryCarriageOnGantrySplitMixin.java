@@ -14,6 +14,6 @@ import net.minecraft.world.level.block.state.BlockState;
 public class GantryCarriageOnGantrySplitMixin {
     @Redirect(method = {"canSurvive", "cycleAxisIfNecessary"}, at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"))
     private boolean permitGantrySplit(BlockEntry<?> instance, BlockState state) {
-        return Util.GantryShaftHasIncGantrySplit(instance, state);
+        return Util.GantryShaftHasIncAllGantryVarients(instance, state);
     }
 }

@@ -15,6 +15,6 @@ public class GantryShaftConnectMixin {
         @Redirect(method = { "updateShape",
             "getStateForPlacement" }, at = @At(value = "INVOKE", target = "Lcom/tterrag/registrate/util/entry/BlockEntry;has(Lnet/minecraft/world/level/block/state/BlockState;)Z"), remap = false)
     private boolean permitGantrySplit(BlockEntry<?> instance, BlockState state) {
-        return Util.GantryShaftHasIncGantrySplit(instance, state);
+        return Util.GantryShaftHasIncAllGantryVarients(instance, state);
     }
 }
