@@ -65,10 +65,15 @@ public interface BlockRegistry {
             })
             .transform(ModelGen.customItemModel("_", "block_single")).register();
 
-    public static final List<BlockEntry<EncasedGantryBlock>> ENCASED_GANTRIES = Stream.concat(Stream.of(
+    public static final List<BlockEntry<EncasedGantryBlock>> ENCASED_GANTRIES = Stream.concat(
+        /* for some reason when having these create block based ones teh following error occurs:
+        ! Caused by: net.neoforged.fml.ModLoadingException: Loading errors encountered:
+        - Create: Extended Gantries (extendedgantries) has failed to load correctly
+          java.lang.ExceptionInInitializerError: null*/
+        /*Stream.of(
         AllBlocks.ANDESITE_CASING, AllBlocks.BRASS_CASING, AllBlocks.COPPER_CASING, AllBlocks.INDUSTRIAL_IRON_BLOCK
-    ).map(BlockNamePair::new).map(block -> CreateExtendedGantries.REGISTRATE
-            .block(block.name() + "_encased_gantry", p -> new EncasedGantryBlock(p, block.get()))
+    ).map(block -> CreateExtendedGantries.REGISTRATE
+            .block(block.getRegisteredName() + "_encased_gantry", p -> new EncasedGantryBlock(p, block.get()))
             .initialProperties(SharedProperties::stone)
             .properties(p -> p.mapColor(MapColor.NETHER).forceSolidOn())
             .transform(TagGen.axeOrPickaxe())
@@ -79,18 +84,18 @@ public interface BlockRegistry {
                 String partName = s.getValue(GantryShaftBlock.PART).getSerializedName();
                 String flipped = isFlipped ? "_flipped" : "";
                 String powered = isPowered ? "_powered" : "";
-                ModelFile existing = AssetLookup.partialBaseModel(c, p, partName);
+                ModelFile existing = p.models().getExistingFile(p.modLoc("block/encased_gantry/" + partName));
                 // if (!isPowered && !isFlipped)
                 //     return existing;
                 return p.models()
-                        .withExistingParent("block/" + c.getName() + "_" + partName + powered + flipped,
+                        .withExistingParent("block/" + c.getName() + "/block_" + partName + powered + flipped,
                                 existing.getLocation())
-                        .texture("casing", "create:block/" + block.name())
+                        .texture("casing", "create:block/" + block.getRegisteredName())
                         .texture("2", "create:block/gantry_shaft" + powered + flipped);
             })).item()
-            .transform(ModelGen.customItemModel("_", "block_encased_gantry"))
+            .transform(ModelGen.customItemModel("_", "block_single"))
             .register()
-    ), Stream.of(
+    )*/ Stream.of(), Stream.of(
         new BlockNamePair("white_concrete", Blocks.WHITE_CONCRETE),
         new BlockNamePair("light_gray_concrete", Blocks.LIGHT_GRAY_CONCRETE),
         new BlockNamePair("gray_concrete", Blocks.GRAY_CONCRETE),
@@ -119,16 +124,16 @@ public interface BlockRegistry {
                 String partName = s.getValue(GantryShaftBlock.PART).getSerializedName();
                 String flipped = isFlipped ? "_flipped" : "";
                 String powered = isPowered ? "_powered" : "";
-                ModelFile existing = AssetLookup.partialBaseModel(c, p, partName);
+                ModelFile existing = p.models().getExistingFile(p.modLoc("block/encased_gantry/" + partName));
                 // if (!isPowered && !isFlipped)
                 //     return existing;
                 return p.models()
-                        .withExistingParent("block/" + c.getName() + "_" + partName + powered + flipped,
+                        .withExistingParent("block/" + c.getName() + "/block_" + partName + powered + flipped,
                                 existing.getLocation())
                         .texture("casing", "minecraft:block/" + block.name())
                         .texture("2", "create:block/gantry_shaft" + powered + flipped);
             })).item()
-            .transform(ModelGen.customItemModel("_", "block_encased_gantry"))
+            .transform(ModelGen.customItemModel("_", "block_single"))
             .register()
     )).toList();
 

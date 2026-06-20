@@ -28,4 +28,9 @@ public class EncasedGantryBlock extends GantryShaftBlock {
         super(properties);
         this.shellBlock = shellBlock;
     }
+
+    @Override
+    public BlockEntityType<? extends GantryShaftBlockEntity> getBlockEntityType() {
+        return BlockEntityRegistry.ENCASED_GANTRY.get();
+    }
 }
