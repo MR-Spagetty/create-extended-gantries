@@ -9,6 +9,7 @@ import com.spag.extended_gantries.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -20,6 +21,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class EncasedGantryBlock extends GantryShaftBlock {
 
@@ -32,5 +36,11 @@ public class EncasedGantryBlock extends GantryShaftBlock {
     @Override
     public BlockEntityType<? extends GantryShaftBlockEntity> getBlockEntityType() {
         return BlockEntityRegistry.ENCASED_GANTRY.get();
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter p_220053_2_, BlockPos p_220053_3_,
+            CollisionContext p_220053_4_) {
+        return Shapes.block();
     }
 }
