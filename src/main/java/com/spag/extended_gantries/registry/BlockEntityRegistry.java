@@ -26,7 +26,7 @@ public interface BlockEntityRegistry {
             .register();
     BlockEntityEntry<EncasedGantryBlockEntity> ENCASED_GANTRY = CreateExtendedGantries.REGISTRATE
             .blockEntity("encased_gantry", EncasedGantryBlockEntity::new)
-            .visual(() -> OrientedRotatingVisual::gantryShaft)
+            .visual(() -> OrientedRotatingVisual::gantryShaft, false)
             .validBlocksDeferred(() -> Collections.unmodifiableCollection(BlockRegistry.ENCASED_GANTRIES))
             .renderer(() -> KineticBlockEntityRenderer::new)
             .register();

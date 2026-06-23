@@ -65,6 +65,24 @@ public interface BlockRegistry {
             })
             .transform(ModelGen.customItemModel("_", "block_single")).register();
 
+    public static final List<BlockNamePair> ENCASED_GANTRY_TYPES = List.of(
+        new BlockNamePair("white_concrete", Blocks.WHITE_CONCRETE),
+        new BlockNamePair("light_gray_concrete", Blocks.LIGHT_GRAY_CONCRETE),
+        new BlockNamePair("gray_concrete", Blocks.GRAY_CONCRETE),
+        new BlockNamePair("black_concrete", Blocks.BLACK_CONCRETE),
+        new BlockNamePair("brown_concrete", Blocks.BROWN_CONCRETE),
+        new BlockNamePair("red_concrete", Blocks.RED_CONCRETE),
+        new BlockNamePair("orange_concrete", Blocks.ORANGE_CONCRETE),
+        new BlockNamePair("yellow_concrete", Blocks.YELLOW_CONCRETE),
+        new BlockNamePair("lime_concrete", Blocks.LIME_CONCRETE),
+        new BlockNamePair("green_concrete", Blocks.GREEN_CONCRETE),
+        new BlockNamePair("cyan_concrete", Blocks.CYAN_CONCRETE),
+        new BlockNamePair("light_blue_concrete", Blocks.LIGHT_BLUE_CONCRETE),
+        new BlockNamePair("blue_concrete", Blocks.BLUE_CONCRETE),
+        new BlockNamePair("purple_concrete", Blocks.PURPLE_CONCRETE),
+        new BlockNamePair("magenta_concrete", Blocks.MAGENTA_CONCRETE),
+        new BlockNamePair("pink_concrete", Blocks.PINK_CONCRETE)
+    );
     public static final List<BlockEntry<EncasedGantryBlock>> ENCASED_GANTRIES = Stream.concat(
         /* for some reason when having these create block based ones teh following error occurs:
         ! Caused by: net.neoforged.fml.ModLoadingException: Loading errors encountered:
@@ -95,27 +113,11 @@ public interface BlockRegistry {
             })).item()
             .transform(ModelGen.customItemModel("_", "block_single"))
             .register()
-    )*/ Stream.of(), Stream.of(
-        new BlockNamePair("white_concrete", Blocks.WHITE_CONCRETE),
-        new BlockNamePair("light_gray_concrete", Blocks.LIGHT_GRAY_CONCRETE),
-        new BlockNamePair("gray_concrete", Blocks.GRAY_CONCRETE),
-        new BlockNamePair("black_concrete", Blocks.BLACK_CONCRETE),
-        new BlockNamePair("brown_concrete", Blocks.BROWN_CONCRETE),
-        new BlockNamePair("red_concrete", Blocks.RED_CONCRETE),
-        new BlockNamePair("orange_concrete", Blocks.ORANGE_CONCRETE),
-        new BlockNamePair("yellow_concrete", Blocks.YELLOW_CONCRETE),
-        new BlockNamePair("lime_concrete", Blocks.LIME_CONCRETE),
-        new BlockNamePair("green_concrete", Blocks.GREEN_CONCRETE),
-        new BlockNamePair("cyan_concrete", Blocks.CYAN_CONCRETE),
-        new BlockNamePair("light_blue_concrete", Blocks.LIGHT_BLUE_CONCRETE),
-        new BlockNamePair("blue_concrete", Blocks.BLUE_CONCRETE),
-        new BlockNamePair("purple_concrete", Blocks.PURPLE_CONCRETE),
-        new BlockNamePair("magenta_concrete", Blocks.MAGENTA_CONCRETE),
-        new BlockNamePair("pink_concrete", Blocks.PINK_CONCRETE)
+    )*/ Stream.of(), ENCASED_GANTRY_TYPES.stream()
     ).map(block -> CreateExtendedGantries.REGISTRATE
             .block(block.name() + "_encased_gantry", p -> new EncasedGantryBlock(p, block.get()))
             .initialProperties(SharedProperties::stone)
-            .properties(p -> p.mapColor(MapColor.NETHER).forceSolidOn())
+            .properties(p -> p.noOcclusion().mapColor(MapColor.NETHER).forceSolidOn())
             .transform(TagGen.axeOrPickaxe())
             .blockstate((c, p) -> p.directionalBlock(c.get(), s -> {
                 boolean isPowered = s.getValue(GantryShaftBlock.POWERED);
@@ -135,7 +137,7 @@ public interface BlockRegistry {
             })).item()
             .transform(ModelGen.customItemModel("_", "block_single"))
             .register()
-    )).toList();
+    ).toList();
 
     public static void register() {
         LOGGER.info("Registering blocks");

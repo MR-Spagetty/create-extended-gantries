@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.simibubi.create.content.kinetics.gantry.GantryShaftBlock;
 import com.spag.extended_gantries.Util;
+import com.spag.extended_gantries.Util.BlockNamePair;
 
 import dev.engine_room.flywheel.lib.model.baked.PartialModel;
 import net.createmod.catnip.data.Iterate;
@@ -41,6 +42,31 @@ public class PartialModels {
             return Util.asResource("block/gantry_split_" + partName + powered + flipped);
         }
     }
+
+    public static final Map<EncasedGantryKey, PartialModel> ENCASED_GANTRY = new HashMap<>();
+
+    static {
+        for (boolean flipped : Iterate.trueAndFalse){
+            for (boolean powered : Iterate.trueAndFalse){
+                for (GantryShaftBlock.Part part : GantryShaftBlock.Part.values()) {
+                    for (BlockNamePair block : BlockRegistry.ENCASED_GANTRY_TYPES) {
+                        EncasedGantryKey key = new EncasedGantryKey(block.name(), part, powered, flipped);
+                        ENCASED_GANTRY.put(key, PartialModel.of(key.name()));
+                    }
+                }
+            }
+        }
+    }
+
+    public record EncasedGantryKey(String block_name, GantryShaftBlock.Part part, boolean powered, boolean flipped) {
+        private ResourceLocation name() {
+            String partName = part.getSerializedName();
+            String flipped = this.flipped ? "_flipped" : "";
+            String powered = this.powered ? "_powered" : "";
+            return Util.asResource("block/" + block_name + "_encased_gantry/block_" +partName + powered + flipped);
+        }
+    }
+
 
     private static PartialModel block(String path) {
         return PartialModel.of(Util.asResource(path));
