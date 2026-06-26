@@ -69,7 +69,7 @@ public class PartialModels {
 
 
     private static PartialModel block(String path) {
-        return PartialModel.of(Util.asResource(path));
+        return PartialModel.of(Util.asResource("block/" + path));
     }
 
     public static void init() {}
